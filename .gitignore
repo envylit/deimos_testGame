@@ -1,3 +1,73 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+*.import
+*.import
+assets 2/Death dust.png.import
+assets 2/Enemy/Green Zombie/Dust 5x5 Down.png.import
+assets 2/Enemy/Green Zombie/Dust 5x5 Up.png.import
+assets 2/Enemy/Green Zombie/Dust 7x3 L.png.import
+assets 2/Enemy/Green Zombie/Dust 7x3 R.png.import
+assets 2/Enemy/Green Zombie/enemy_zombie_attack.png.import
+assets 2/Enemy/Green Zombie/enemy_zombie_death.png.import
+assets 2/Enemy/Green Zombie/enemy_zombie_hurt.png.import
+assets 2/Enemy/Green Zombie/enemy_zombie_idle.png.import
+assets 2/Enemy/Green Zombie/enemy_zombie_move.png.import
+assets 2/Enemy/Green Zombie/Zombies 1.1 portraits 16x16.png.import
+assets 2/Enemy/Green Zombie/Zombies 1.2 portraits 16x16.png.import
+assets 2/Enemy/King Slime Pack/enemy_slime-king_death.png.import
+assets 2/Enemy/King Slime Pack/enemy_slime-king_hurt.png.import
+assets 2/Enemy/King Slime Pack/enemy_slime-king_idle.png.import
+assets 2/Enemy/King Slime Pack/enemy_slime-king_spawn.png.import
+assets 2/Enemy/King Slime Pack/energy-beam-large.png.import
+assets 2/Enemy/King Slime Pack/energy-beam.png.import
+assets 2/Enemy/King Slime Pack/energy-explosion.png.import
+assets 2/Enemy/Slimes/enemy_blue_slime.png.import
+assets 2/Enemy/Slimes/enemy_blue_slime2.png.import
+assets 2/Enemy/Slimes/enemy_green_slime.png.import
+assets 2/Environment/ground_spikes.png.import
+assets 2/Environment/map_grounds.png.import
+assets 2/Environment/map_grounds_decors.png.import
+assets 2/Environment/map_subgrounds.png.import
+assets 2/Environment/map_walls.png.import
+assets 2/Environment/map_water_decors.png.import
+assets 2/Environment/map_waters.png.import
+assets 2/Environment/transition_gate1.png.import
+assets 2/Environment/transition_gate2.png.import
+assets 2/Environment/transition_stairs_and_ladders.png.import
+assets 2/Fonts/regulartxt.ttf.import
+assets 2/Fonts/title.otf.import
+assets 2/Player/Blue Knight/Default Blue - Attack 1 (32x32).png.import
+assets 2/Player/Blue Knight/Default Blue - Attack 2 (32x32).png.import
+assets 2/Player/Blue Knight/Default Blue - Death.png.import
+assets 2/Player/Blue Knight/Default Blue - Hit 1 (16x20).png.import
+assets 2/Player/Blue Knight/Default Blue - Hit 2 (16x20).png.import
+assets 2/Player/Blue Knight/Default Blue - Idle (16x16).png.import
+assets 2/Player/Blue Knight/Default Blue - Run (16x17).png.import
+assets 2/Player/Blue Knight/Default Blue - Standby (16x16).png.import
+assets 2/Projectiles/enemy_projectile_slime.png.import
+assets 2/Projectiles/enemy_projectile_slime2.png.import
+assets 2/Props/coll_coins.png.import
+assets 2/Props/int_doors1.png.import
+assets 2/Props/int_doors2.png.import
+assets 2/Props/int_signs.png.import
+assets 2/Props/int_sparkle.png.import
+assets 2/Props/props_banners1.png.import
+assets 2/Props/props_banners2.png.import
+assets 2/Props/props_crates.png.import
+assets 2/Props/props_pillars.png.import
+assets 2/Props/props_torch1.png.import
+assets 2/Props/props_torch2.png.import
+assets 2/Props/props_torch_side1.png.import
+assets 2/Props/props_torch_side2.png.import
+assets 2/Props/props_vases.png.import
+assets 2/Props/props_vases_break.png.import
+assets 2/Props/props_vases_hurt.png.import
+assets 2/Shadow.png.import
+assets 2/target.png.import
+assets 2/UI/Boss Healthbar.png.import
+assets 2/UI/Player HUD.png.import
+assets 2/UI/Player Icon.png.import
+assets 2/warning.png.import
+assets 2/warning2.png.import
+assets 2/x-sign.png.import
