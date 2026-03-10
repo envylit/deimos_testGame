@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://hvjv00b777us"]
+
+[ext_resource type="Texture2D" uid="uid://bit50vqarcxh7" path="res://assets 2/Player/Blue Knight/Default Blue - Attack 1 (32x32).png" id="1_b4yjp"]
+
+[node name="Test2DNode" type="Node2D"]
+
+[node name="DefaultBlue-Attack1(32x32)" type="Sprite2D" parent="."]
+position = Vector2(192, 96)
+texture = ExtResource("1_b4yjp")
