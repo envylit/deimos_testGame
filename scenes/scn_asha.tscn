@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cpef5byarqeq0" path="res://assets 1/DG Asha Character/Black Asha Walk 32x32.png" id="2_mublb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7klyi"]
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_2dum5"]
 length = 0.001
@@ -289,13 +290,13 @@ _data = {
 [node name="Asha" type="CharacterBody2D" unique_id=1117383921]
 script = ExtResource("1_mublb")
 
-[node name="Collision" type="CollisionShape2D" parent="." unique_id=374294778]
-shape = SubResource("CircleShape2D_7klyi")
-
 [node name="Sprite" type="Sprite2D" parent="." unique_id=883528526]
 texture = ExtResource("2_mublb")
 hframes = 8
 vframes = 4
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=374294778]
+shape = SubResource("CircleShape2D_7klyi")
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=1749549913]
 root_node = NodePath("../..")
