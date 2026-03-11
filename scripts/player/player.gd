@@ -3,7 +3,7 @@ class_name Player extends CharacterBody2D
 @onready var animation: AnimationPlayer = $Animation
 @onready var sprite: Sprite2D = $Sprite
 
-var move_speed : float  = 100.0
+var move_speed : float  = 35.0
 var direction : Vector2 = Vector2.ZERO
 var state : String = "idle"
 var cardinal_direction : Vector2 = Vector2.DOWN
@@ -17,6 +17,8 @@ func _process(_delta):
 	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	
 	velocity = direction * move_speed
+	
+	Run()
 	
 	if SetState() == true || SetDirection() == true :
 		UpdateAnimation()
@@ -76,3 +78,9 @@ func AnimationDirection() -> String:
 		return "right"
 	else:
 		return ""
+
+func Run():
+	if Input.is_action_pressed("run"):
+		move_speed = 75.0
+	else:
+		move_speed = 35.0
