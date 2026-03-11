@@ -7,10 +7,10 @@
 
 [node name="Asha" parent="." unique_id=1117383921 instance=ExtResource("1_8dd5b")]
 
-[node name="Camera2D" type="Camera2D" parent="Asha" unique_id=477911341]
-zoom = Vector2(4, 4)
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1784791907]
 position = Vector2(43, -46)
 scale = Vector2(0.328125, 0.28125)
 texture = ExtResource("2_yw3bd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=477911341]
+zoom = Vector2(4, 4)
