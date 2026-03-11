@@ -1,7 +1,16 @@
 [gd_scene format=3 uid="uid://hvjv00b777us"]
 
 [ext_resource type="PackedScene" uid="uid://doi0xp8v0losv" path="res://scenes/scn_asha.tscn" id="1_8dd5b"]
+[ext_resource type="Texture2D" uid="uid://dy5dhfyym0jks" path="res://icon.svg" id="2_yw3bd"]
 
 [node name="Playground" type="Node2D" unique_id=1078963017]
 
 [node name="Asha" parent="." unique_id=1117383921 instance=ExtResource("1_8dd5b")]
+
+[node name="Camera2D" type="Camera2D" parent="Asha" unique_id=477911341]
+zoom = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1784791907]
+position = Vector2(43, -46)
+scale = Vector2(0.328125, 0.28125)
+texture = ExtResource("2_yw3bd")
