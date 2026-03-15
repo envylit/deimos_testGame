@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 @onready var animation: AnimationPlayer = $Animation
 @onready var sprite: Sprite2D = $Sprite
+@onready var label: Label = $Label
 
 var move_speed : float  = 35.0
 var direction : Vector2 = Vector2.ZERO
@@ -10,6 +11,7 @@ var cardinal_direction : Vector2 = Vector2.DOWN
 
 func _ready() -> void:
 	print("ready!")
+	label.text = state
 	pass
 
 func _process(_delta):
@@ -22,6 +24,7 @@ func _process(_delta):
 	
 	if SetState() == true || SetDirection() == true :
 		UpdateAnimation()
+	
 	pass
 	
 func _physics_process(_delta):
@@ -31,6 +34,7 @@ func _physics_process(_delta):
 	
 func SetDirection() -> bool:
 	var new_dir : Vector2 = cardinal_direction
+	
 	if direction == Vector2.ZERO:
 		return false
 	if direction.y == 0 :
@@ -55,12 +59,15 @@ func SetState() -> bool:
 	
 	if direction == Vector2.ZERO:
 		new_state = "idle" 
+	#elif direction != Vector2.ZERO && Input.is_action_pressed("run"):
+		#new_state = "run"
 	else:
 		new_state = "walk"
 	
 	if new_state == state:
 		return false
 	state = new_state
+	label.text = state
 	return true
 	
 func UpdateAnimation() -> void:
@@ -68,6 +75,7 @@ func UpdateAnimation() -> void:
 	pass
 	
 func AnimationDirection() -> String:
+	#
 	if cardinal_direction == Vector2.DOWN:
 		return "down"
 	elif cardinal_direction == Vector2.UP:
@@ -80,7 +88,10 @@ func AnimationDirection() -> String:
 		return ""
 
 func Run():
-	if Input.is_action_pressed("run"):
+	#i dont think this is how u should implement it
+	if Input.is_action_pressed("run") && direction != Vector2.ZERO:
 		move_speed = 75.0
+		animation.speed_scale = 2.2
 	else:
 		move_speed = 35.0
+		animation.speed_scale = 1
