@@ -15,7 +15,6 @@ func _ready() -> void:
 func _process(_delta):
 	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left") # ( 1/-1 , 0 )
 	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up") # ( 0 , 1/-1 )
-	print(direction)
 	pass
 	
 func _physics_process(_delta):
@@ -46,12 +45,7 @@ func SetDirection() -> bool:
 	cardinal_direction = new_dir
 	return true
 	
-func UpdateAnimation( _state : String ) -> void:
-	animation.play("anim_asha_"+ _state + "_" + AnimationDirection())
-	pass
-	
 func AnimationDirection() -> String:
-	#
 	if cardinal_direction == Vector2.DOWN:
 		return "down"
 	elif cardinal_direction == Vector2.UP:
@@ -62,3 +56,7 @@ func AnimationDirection() -> String:
 		return "right"
 	else:
 		return ""
+		
+func UpdateAnimation( _state : String ) -> void:
+	animation.play("anim_asha_"+ _state + "_" + AnimationDirection())
+	pass
