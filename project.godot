@@ -17,8 +17,15 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
+window/size/viewport_width=640
+window/size/viewport_height=360
+
+[file_customization]
+
+folder_colors={
+"res://assets 1/": "yellow",
+"res://assets 2/": "yellow"
+}
 
 [gui]
 

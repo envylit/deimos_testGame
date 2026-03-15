@@ -2,46 +2,38 @@ class_name Player extends CharacterBody2D
 
 @onready var animation: AnimationPlayer = $Animation
 @onready var sprite: Sprite2D = $Sprite
-@onready var label: Label = $Label
+@onready var state_machine: PlayerStateMachine = $StateMachine
 
-var move_speed : float  = 35.0
 var direction : Vector2 = Vector2.ZERO
 var state : String = "idle"
 var cardinal_direction : Vector2 = Vector2.DOWN
 
 func _ready() -> void:
-	print("ready!")
-	label.text = state
+	state_machine.Initialize( self ) #player initialize state machine
 	pass
 
 func _process(_delta):
-	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	
-	velocity = direction * move_speed
-	
-	Run()
-	
-	if SetState() == true || SetDirection() == true :
-		UpdateAnimation()
-	
+	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left") # ( 1/-1 , 0 )
+	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up") # ( 0 , 1/-1 )
+	print(direction)
 	pass
 	
 func _physics_process(_delta):
-	move_and_slide()
-	
+	move_and_slide() #allows characterbody2d to move around
 	pass
 	
 func SetDirection() -> bool:
-	var new_dir : Vector2 = cardinal_direction
+	var new_dir : Vector2 = cardinal_direction # which way are you facing?
 	
-	if direction == Vector2.ZERO:
+	if direction == Vector2.ZERO: #no function if no change in direction or move input
 		return false
+		
 	if direction.y == 0 :
 		if direction.x < 0:
 			new_dir = Vector2.LEFT
 		else:
 			new_dir = Vector2.RIGHT
+			
 	if direction.x == 0 :
 		if direction.y < 0:
 			new_dir = Vector2.UP
@@ -54,24 +46,8 @@ func SetDirection() -> bool:
 	cardinal_direction = new_dir
 	return true
 	
-func SetState() -> bool:
-	var new_state : String = "idle" 
-	
-	if direction == Vector2.ZERO:
-		new_state = "idle" 
-	#elif direction != Vector2.ZERO && Input.is_action_pressed("run"):
-		#new_state = "run"
-	else:
-		new_state = "walk"
-	
-	if new_state == state:
-		return false
-	state = new_state
-	label.text = state
-	return true
-	
-func UpdateAnimation() -> void:
-	animation.play("anim_asha_"+ state + "_" + AnimationDirection())
+func UpdateAnimation( _state : String ) -> void:
+	animation.play("anim_asha_"+ _state + "_" + AnimationDirection())
 	pass
 	
 func AnimationDirection() -> String:
@@ -86,12 +62,3 @@ func AnimationDirection() -> String:
 		return "right"
 	else:
 		return ""
-
-func Run():
-	#i dont think this is how u should implement it
-	if Input.is_action_pressed("run") && direction != Vector2.ZERO:
-		move_speed = 75.0
-		animation.speed_scale = 2.2
-	else:
-		move_speed = 35.0
-		animation.speed_scale = 1

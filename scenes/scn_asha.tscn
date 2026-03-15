@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://botwsaba2a74n" path="res://assets 1/DG Asha Character/Black Asha Idle 32x32.png" id="1_bowh3"]
 [ext_resource type="Script" uid="uid://gf5bt4xetufy" path="res://scripts/player/player.gd" id="1_mublb"]
 [ext_resource type="Texture2D" uid="uid://cpef5byarqeq0" path="res://assets 1/DG Asha Character/Black Asha Walk 32x32.png" id="2_mublb"]
+[ext_resource type="Script" uid="uid://dtl53h20wouei" path="res://scripts/player/player_state_machine.gd" id="4_1pgn0"]
+[ext_resource type="Script" uid="uid://2iuu5rlfhn22" path="res://scripts/player/state_idle.gd" id="5_rm3ag"]
+[ext_resource type="Script" uid="uid://bgq7cfid4kler" path="res://scripts/player/state_walk.gd" id="6_4qdvm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7klyi"]
 radius = 6.0
@@ -154,36 +157,6 @@ tracks/1/keys = {
 "values": [ExtResource("1_bowh3")]
 }
 
-[sub_resource type="Animation" id="Animation_mublb"]
-resource_name = "anim_asha_run_down"
-length = 0.64
-loop_mode = 1
-step = 0.08
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Asha/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.07692308, 0.15384616, 0.23076923, 0.30769232, 0.3846154, 0.46153846, 0.53846157),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Asha/Sprite:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_mublb")]
-}
-
 [sub_resource type="Animation" id="Animation_s355p"]
 resource_name = "anim_asha_walk_down"
 length = 1.2
@@ -311,7 +284,6 @@ _data = {
 &"anim_asha_idle_left": SubResource("Animation_oljux"),
 &"anim_asha_idle_right": SubResource("Animation_0b735"),
 &"anim_asha_idle_up": SubResource("Animation_scvxl"),
-&"anim_asha_run_down": SubResource("Animation_mublb"),
 &"anim_asha_walk_down": SubResource("Animation_s355p"),
 &"anim_asha_walk_left": SubResource("Animation_bdtha"),
 &"anim_asha_walk_right": SubResource("Animation_hd7qt"),
@@ -334,7 +306,10 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_rxkdi")
 autoplay = &"anim_asha_idle_down"
 
-[node name="Label" type="Label" parent="." unique_id=905751838]
+[node name="StateMachine" type="Node2D" parent="." unique_id=953644663]
+script = ExtResource("4_1pgn0")
+
+[node name="Label" type="Label" parent="StateMachine" unique_id=905751838]
 texture_filter = 1
 offset_left = -17.0
 offset_top = -20.0
@@ -344,3 +319,9 @@ theme_override_font_sizes/font_size = 8
 text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Idle" type="Node2D" parent="StateMachine" unique_id=1107750366]
+script = ExtResource("5_rm3ag")
+
+[node name="Walk" type="Node2D" parent="StateMachine" unique_id=1452218685]
+script = ExtResource("6_4qdvm")
